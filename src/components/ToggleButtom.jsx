@@ -1,11 +1,14 @@
-import { useState } from "react";
 import styled from "styled-components";
+import { useState, useContext } from "react";
+import { ThemeContext, themes } from "../contexts/ThemeContext";
 
 function ToggleButtom(props) {
   const [isActive, setIsActive] = useState(false);
+  const { theme, setTheme } = useContext(ThemeContext);
 
   const handleClick = () => {
     setIsActive(!isActive);
+    setTheme(theme === themes.light ? themes.dark : themes.light);
   };
 
   return (
@@ -18,6 +21,8 @@ function ToggleButtom(props) {
     </BtnTheme>
   );
 }
+export default ToggleButtom;
+
 const BtnTheme = styled.div`
   background-color: whitesmoke;
   min-width: 60px;
@@ -50,5 +55,3 @@ const Indicator = styled.div`
   align-items: center;
   transition: background-color 1s ease, transform 0.4s ease;
 `;
-
-export default ToggleButtom;

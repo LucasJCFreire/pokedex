@@ -1,12 +1,14 @@
 import { createGlobalStyle } from "styled-components";
 
 const Styles = createGlobalStyle`
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 :root {
   --primary-color: #333;
   --secundary-color: whitesmoke;
   --elementColor: #222;
   --bgColor: #fff;
 
+  --primary-font: "Montserrat", sans-serif;
   --accent-color: #F04037;
 
   --font-size-small: 1.4rem;
@@ -44,7 +46,8 @@ a {
 }
 
 html{
-  font-size: 62.5%
+  font-size: 62.5%;
+  font-family: var(--primary-font);
 }
 
 body {

@@ -7,16 +7,16 @@ export const themes = {
   },
   dark: {
     color: "#eee",
-    background: "#fff",
+    background: "#333",
   },
 };
 
-export const ThemeContext = createContext();
+export const ThemeContext = createContext({});
 
 export function ThemeProvider({ children }) {
-  const [theme, SetTheme] = useState(themes.light);
+  const [theme, setTheme] = useState(themes.light);
   return (
-    <ThemeContext.Provider value={(theme, SetTheme)}>
+    <ThemeContext.Provider value={{ theme, setTheme }}>
       {children}
     </ThemeContext.Provider>
   );
