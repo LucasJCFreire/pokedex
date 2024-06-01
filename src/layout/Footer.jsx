@@ -1,9 +1,12 @@
 import { FaAddressCard, FaGithub, FaLinkedin } from "react-icons/fa";
 import styled from "styled-components";
+import { useContext } from "react";
+import { ThemeContext } from "../contexts/ThemeContext";
 
 function FooterBar() {
+  const { theme } = useContext(ThemeContext);
   return (
-    <Footer>
+    <Footer theme={theme}>
       <ul>
         <li>
           <a href="https://www.linkedin.com/in/lucasjcfreire/" target="_blank">
@@ -27,15 +30,17 @@ function FooterBar() {
 }
 
 const Footer = styled.footer`
-  grid-area: footer;
+  position: fixed;
+  width: 100%;
+  bottom: 0px;
   height: 120px;
-  background-color: var(--fixedElementColor);
   display: flex;
   flex-direction: column;
   justify-content: end;
   align-items: center;
-  color: var(--fixedTextColor);
   padding-bottom: 15px;
+  color: ${({ theme }) => theme.fixedText};
+  background-color: ${({ theme }) => theme.fixedElement};
 
   ul {
     display: flex;
@@ -43,7 +48,7 @@ const Footer = styled.footer`
 
   a {
     transition: 0.5s ease;
-    color: var(--fixedTextColor);
+    color: ${({ theme }) => theme.fixedText};
     &:hover {
       color: var(--accent-color);
     }

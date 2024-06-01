@@ -16,11 +16,7 @@ const Styles = createGlobalStyle`
   --font-size-medium: 2rem;
   --font-size-large: 2.5rem;
   --font-size-extra-large: 3rem;
-
-  //Layout
-  --borderColor: #222;
-  --fixedElementColor: #222;
-  --fixedTextColor: #fff;
+  --font-size-mega-large: 4rem;
 }
 
 * {
@@ -38,11 +34,8 @@ a {
 }
 
 #root {
-  display: grid;
-  grid-template-areas: "header""main""footer";
-  grid-template-columns: 100vw;
-  min-width: 375px;
   min-height: 100vh;
+  min-width: 375px;
 }
 
 html{
