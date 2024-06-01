@@ -4,10 +4,14 @@ export const themes = {
   light: {
     color: "#333",
     background: "#eee",
+    fixedElement: "#555",
+    fixedText: "#000",
   },
   dark: {
     color: "#eee",
     background: "#333",
+    fixedElement: "#111",
+    fixedText: "#fff",
   },
 };
 
