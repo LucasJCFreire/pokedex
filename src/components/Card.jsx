@@ -1,22 +1,50 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import Loading from "./Loading";
 
-function Card() {
+function Card({ name, number }) {
+  const [type, setType] = useState("");
+  const [image, setImage] = useState("");
+
+  useEffect(() => {
+    const infoPokemon = () => {
+      fetch(`https://pokeapi.co/api/v2/pokemon/${number}/`)
+        .then((resp) => resp.json())
+        .then((data) => {
+          const pokemonType = data.types[0].type.name;
+          const pokemonImage =
+            data.sprites.other["official-artwork"].front_default;
+          setType(pokemonType);
+          setImage(pokemonImage);
+        })
+        .catch((error) => {
+          console.error("Erro de requisicao no componente Card:", error);
+        });
+    };
+
+    infoPokemon();
+  }, [number]);
+
   return (
-    <Link to={`/description/${1}`}>
-      <StyledDiv className={"grass"}>
+    <Link name={name} to={`/description/${number}`}>
+      <StyledDiv className={type.toLowerCase()}>
         <DivImg>
-          <img src="#" alt={`Imagem do pokemon Bubassauro`} />
+          {!image ? (
+            <Loading />
+          ) : (
+            <img src={image} alt={`Imagem do Pokémon ${name}`} />
+          )}
         </DivImg>
         <DivInfo>
           <p>
-            <span>#</span> {"1"}
+            <span>#</span> {number}
           </p>
           <p>
-            <span>Nome:</span> {"Bubassauro"}
+            <span>Nome:</span> {name.toUpperCase()}
           </p>
           <p>
-            <span>Tipo:</span> {"Grass"}
+            <span>Tipo:</span> {type}
           </p>
         </DivInfo>
       </StyledDiv>
@@ -37,7 +65,7 @@ const StyledDiv = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  transition: 0.4s;
+  transition: ease 0.4s;
 
   &.grass {
     background-color: rgba(222, 253, 224, 0.6);
