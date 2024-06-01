@@ -1,12 +1,40 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import logo from "../images/favicon.png";
 import Card from "../components/Card";
+import { useState, useEffect } from "react";
 
 function Home() {
+  const [count, setCount] = useState(0);
+  const [list, setList] = useState([]);
+
+  useEffect(() => {
+    addPokemon();
+  }, []);
+
+  async function addPokemon() {
+    fetch(`https://pokeapi.co/api/v2/pokemon?limit=10&offset=${count}`)
+      .then((resp) => resp.json())
+      .then((data) => {
+        setList([...list, ...data.results]);
+        setCount(count + 10);
+
+        setTimeout(() => {
+          window.scrollTo({
+            top: document.body.scrollHeight,
+            behavior: "smooth",
+          });
+        }, 800);
+      })
+      .catch((error) => {
+        console.error("Erro na requisicao da pagina Home", error);
+      });
+  }
   return (
     <StyledDiv>
-      <Card />
-      <a className="btnadd">
+      {list.map((pokemon, index) => (
+        <Card key={index} number={index + 1} name={pokemon.name} />
+      ))}
+      <a className="btnadd" onClick={addPokemon}>
         <Img src={logo} alt="imagem pokebola" />
       </a>
     </StyledDiv>
@@ -25,11 +53,12 @@ const StyledDiv = styled.div`
   justify-content: space-evenly;
   position: relative;
   .btnadd {
-    position: absolute;
+    position: fixed;
+    z-index: 999;
     right: 50%;
     transform: translatex(50%);
     color: white;
-    bottom: -45px;
+    bottom: 70px;
     cursor: pointer;
     transition: 0.4s;
     &:hover {
