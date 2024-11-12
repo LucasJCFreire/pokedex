@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import Card from "../components/Card";
 import { fetchAllPokemon } from "../services/fetchAllPokemon";
@@ -7,6 +7,7 @@ import { getStoredPokemon } from "../services/getLocalStorage";
 export default function Home() {
 	const [count, setCount] = useState(10);
 	const [list, setList] = useState([]);
+	const containerRef = useRef(null);
 
 	useEffect(() => {
 		const storedPokemon = getStoredPokemon();
@@ -23,18 +24,17 @@ export default function Home() {
 		const storedPokemon = getStoredPokemon();
 		setList(storedPokemon.slice(0, count + 10));
 		setCount(count + 10);
-
 		setTimeout(() => {
-			window.scrollTo({
-				top: document.body.scrollHeight,
-				behavior: "smooth",
+			containerRef.current.scrollTo({
+				top: containerRef.current.scrollHeight,
+				behavior: "smooth"
 			});
 		}, 800);
 	}
 
 	return (
 		<>
-			<StyledDiv>
+			<StyledDiv ref={containerRef}>
 				{list.map((pokemon, index) => (
 					<Card
 						key={index}
@@ -56,7 +56,8 @@ const StyledDiv = styled.div`
   margin: 0 auto;
   width: 100%;
   max-width: 1440px;
-  height: auto;
+  height: 100%;
+  overflow-y: auto;
   padding-bottom: 50px;
   display: flex;
   flex-wrap: wrap;
@@ -69,13 +70,13 @@ const ImageDiv = styled.div`
   bottom: 80px;
   left: 50%;
   transform: translateX(-50%);
-  transition: transform 0.3s ease; /* Adiciona transição suave */
+  transition: transform 0.3s ease;
   z-index: 10;
 	img{
 		animation: shake 2s infinite;
 	}
   &:hover {
-    transform: translateX(-50%) scale(1.1); /* Aumenta ao passar o mouse */
+    transform: translateX(-50%) scale(1.1);
   }
 			
   @keyframes shake {
