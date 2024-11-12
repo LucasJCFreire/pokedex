@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export default function Container(props) {
-  return <StyledMain>{props.children}</StyledMain>;
+	return <StyledMain>{props.children}</StyledMain>;
 }
 
 const StyledMain = styled.main`
