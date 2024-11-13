@@ -27,6 +27,7 @@ export default function Footer() {
 }
 
 const StyledFooter = styled.footer`
+  min-width: 350px;
   position: fixed;
   bottom: 0;
   left:0;
