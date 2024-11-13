@@ -10,13 +10,14 @@ export default function Header() {
 			<Link to="/" className="home">
 				<FcHome style={{ fontSize: "55px" }} />
 			</Link>
-			<img src={text_pokemon} alt="Texto colorido Pokemon" />
+			<img className="textoPokemon" src={text_pokemon} alt="Texto colorido Pokemon" />
 			<ActionsHeader />
 		</StyledHeader>
 	);
 }
 
 const StyledHeader = styled.header`
+  min-width: 350px;
   position: fixed;
   top: 0;
   left: 0;
@@ -33,7 +34,7 @@ const StyledHeader = styled.header`
     width: 160px;
   }
 
-  img {
+  .textoPokemon {
     width: 300px;
     transform: translateY(20px);
     @media (max-width: 700px) {
