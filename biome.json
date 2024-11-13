@@ -22,8 +22,7 @@
 		"rules": {
 			"recommended": true,
 			"suspicious": {
-				"noDoubleEquals": "error",
-				"noConsole": "warn"
+				"noDoubleEquals": "error"
 			}
 		},
 		"ignore": ["**/*.css"]
