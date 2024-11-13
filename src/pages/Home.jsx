@@ -89,8 +89,8 @@ const StyledDiv = styled.div`
 `;
 
 const ImageDiv = styled.div`
-  position: absolute;
-  bottom: 80px;
+  position: fixed;
+  bottom: 75px;
   left: 50%;
   transform: translateX(-50%);
   transition: transform 0.3s ease;
