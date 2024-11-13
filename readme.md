@@ -24,13 +24,17 @@
         <th><p>Sobre o Projeto</p></th>
     </tr>
     <tr>
-        <td>
-            <p>The goal of this project was to develop a Pokédex in React, using the Pokémon API with functionalities to list, add, edit, and delete Pokémon. To optimize development and performance, I used Vite as the bundler and React as the main library, along with React Router DOM for navigation, React Icons for icons, and Styled Components for styling. Additionally, I used Biome.js to ensure code standardization and quality.</p>
-        </td>
-        <td>
-            <p>Este projeto teve como objetivo desenvolver uma Pokédex em React, utilizando a API Pokémon com funcionalidades de listar, adicionar, editar e excluir Pokémons. Para otimizar o desenvolvimento e a performance, utilizei Vite como bundler e React como biblioteca principal, juntamente com as bibliotecas React Router DOM para navegação, React Icons para ícones e Styled Components para estilização. Além disso, utilizei Biome.js para garantir a padronização e qualidade do código.</p>
-        </td>
-    </tr>
+    <td>
+        <p>This project aimed to develop a Pokédex using <strong>React</strong>, with integration to the <strong>Pokémon API</strong> and features for listing, adding, editing, and deleting Pokémon. To optimize development and performance, I used <strong>Vite</strong> as the bundler and <strong>React</strong> as the main library, along with <strong>React Router DOM</strong> for navigation, <strong>React Icons</strong> for icons, and <strong>Styled Components</strong> for styling.To ensure code quality and standardization, I used <strong>Biome.js</strong>.
+        <br><br>
+        Data manipulation was handled using <strong>localStorage</strong> instead of a JSON file or JSON Server, ensuring that the data persisted locally in the browser even after page reloads. This provides a simplified and efficient approach to store and manage the Pokédex data while maintaining the integrity of the information during the project execution.</p>
+    </td>
+    <td>
+        <p>Este projeto teve como objetivo desenvolver uma Pokédex utilizando <strong>React</strong>, com integração à <strong>API Pokémon</strong> e funcionalidades de listagem, adição, edição e exclusão de Pokémons. Para otimizar o desenvolvimento e a performance, utilizei <strong>Vite</strong> como bundler e <strong>React</strong> como biblioteca principal, juntamente com <strong>React Router DOM</strong> para navegação, <strong>React Icons</strong> para ícones e <strong>Styled Components</strong> para estilização. Para garantir a qualidade e padronização do código, utilizei <strong>Biome.js</strong>.
+        <br><br>
+        A manipulação dos dados foi feita utilizando <strong>localStorage</strong>, ao invés de um arquivo JSON ou JSON Server, garantindo que os dados fossem persistidos localmente no navegador, mesmo após a recarga da página. Isso oferece uma abordagem simplificada e eficiente para armazenar e gerenciar os dados da Pokédex, mantendo a integridade das informações enquanto o projeto é executado.</p>
+    </td>
+</tr>
     <tr>
         <th><p>Skills / Techniques</p></th>
         <th><p>Habilidades / Técnicas</p></th>
