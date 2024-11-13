@@ -1,5 +1,5 @@
 import { fetchPokemonDetails } from "./fetchPokemonDetails";
-import { putStoredPokemon } from "./putLocalStorage";
+import { postStoredPokemon } from "./postLocalStorage";
 
 export async function fetchAllPokemon() {
 	const allPokemon = [];
@@ -19,7 +19,7 @@ export async function fetchAllPokemon() {
 		url = data.next;
 	}
 
-	putStoredPokemon(allPokemon);
+	postStoredPokemon(allPokemon);
 
 	return allPokemon;
 }
